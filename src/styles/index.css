@@ -1,3 +1,4 @@
 @import './base.css';
 @import 'animate.css';
 @import 'tailwindcss';
+@import 'nprogress/nprogress.css';

@@ -66,3 +66,8 @@ body {
   background: #f4f4f4;
   line-height: 1.6;
 }
+
+/* 自定义顶部加载 Loading 颜色 */
+#nprogress .bar {
+  background: #409eff !important;
+}

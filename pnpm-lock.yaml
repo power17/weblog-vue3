@@ -16,7 +16,7 @@ importers:
         version: 4.1.11(vite@7.0.0(@types/node@22.15.34)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2))
       '@vueuse/integrations':
         specifier: ^13.4.0
-        version: 13.4.0(async-validator@4.2.5)(axios@1.10.0)(universal-cookie@8.0.1)(vue@3.5.17(typescript@5.8.3))
+        version: 13.4.0(async-validator@4.2.5)(axios@1.10.0)(nprogress@0.2.0)(universal-cookie@8.0.1)(vue@3.5.17(typescript@5.8.3))
       animate.css:
         specifier: ^4.1.1
         version: 4.1.1
@@ -29,6 +29,9 @@ importers:
       flowbite:
         specifier: ^3.1.2
         version: 3.1.2(rollup@4.44.1)
+      nprogress:
+        specifier: ^0.2.0
+        version: 0.2.0
       pinia:
         specifier: ^3.0.3
         version: 3.0.3(typescript@5.8.3)(vue@3.5.17(typescript@5.8.3))
@@ -54,6 +57,9 @@ importers:
       '@types/node':
         specifier: ^22.15.32
         version: 22.15.34
+      '@types/nprogress':
+        specifier: ^0.2.3
+        version: 0.2.3
       '@vitejs/plugin-vue':
         specifier: ^6.0.0
         version: 6.0.0(vite@7.0.0(@types/node@22.15.34)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2))(vue@3.5.17(typescript@5.8.3))
@@ -869,6 +875,9 @@ packages:
 
   '@types/node@22.15.34':
     resolution: {integrity: sha512-8Y6E5WUupYy1Dd0II32BsWAx5MWdcnRd8L84Oys3veg1YrYtNtzgO4CFhiBg6MDSjk7Ay36HYOnU7/tuOzIzcw==}
+
+  '@types/nprogress@0.2.3':
+    resolution: {integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -2047,6 +2056,9 @@ packages:
     resolution: {integrity: sha512-wdbB5My48XKp2ZfJUlhnLVihzeuA1hgBnqB2J9ahV77wLS+/YAJAlN8I+X3DIFIPZ3m5L7nplmlbhNiFDmXRDA==}
     engines: {node: ^20.5.0 || >=22.0.0, npm: '>= 10'}
     hasBin: true
+
+  nprogress@0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -3289,6 +3301,8 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
+  '@types/nprogress@0.2.3': {}
+
   '@types/resolve@1.20.2': {}
 
   '@types/tough-cookie@4.0.5': {}
@@ -3640,7 +3654,7 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@13.4.0(async-validator@4.2.5)(axios@1.10.0)(universal-cookie@8.0.1)(vue@3.5.17(typescript@5.8.3))':
+  '@vueuse/integrations@13.4.0(async-validator@4.2.5)(axios@1.10.0)(nprogress@0.2.0)(universal-cookie@8.0.1)(vue@3.5.17(typescript@5.8.3))':
     dependencies:
       '@vueuse/core': 13.4.0(vue@3.5.17(typescript@5.8.3))
       '@vueuse/shared': 13.4.0(vue@3.5.17(typescript@5.8.3))
@@ -3648,6 +3662,7 @@ snapshots:
     optionalDependencies:
       async-validator: 4.2.5
       axios: 1.10.0
+      nprogress: 0.2.0
       universal-cookie: 8.0.1
 
   '@vueuse/metadata@13.4.0': {}
@@ -4524,6 +4539,8 @@ snapshots:
       read-package-json-fast: 4.0.0
       shell-quote: 1.8.3
       which: 5.0.0
+
+  nprogress@0.2.0: {}
 
   nth-check@2.1.1:
     dependencies:

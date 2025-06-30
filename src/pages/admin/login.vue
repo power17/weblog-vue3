@@ -45,6 +45,7 @@
               placeholder="请输入密码"
               :prefix-icon="Lock"
               clearable
+              show-password
               @keyup.enter="onSubmit"
             />
           </el-form-item>
