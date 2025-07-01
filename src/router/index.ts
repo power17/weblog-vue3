@@ -3,6 +3,10 @@ import Index from '@/pages/frontend/index.vue'
 import Login from '@/pages/admin/login.vue'
 import AdminIndex from '@/pages/admin/index.vue'
 import Admin from '@/layouts/admin/index.vue'
+import AdminArticleList from '@/pages/admin/article-list/index.vue'
+import AdminCategoryList from '@/pages/admin/category-list/index.vue'
+import AdminTagList from '@/pages/admin/tag-list/index.vue'
+import AdminBlogSetting from '@/pages/admin/blog-setting/index.vue'
 
 import { getToken, showMessage } from '@/utils'
 import nprogress from 'nprogress'
@@ -29,12 +33,41 @@ const router = createRouter({
       path: '/admin', // 后台首页
       component: Admin, // 对应 admin.vue 布局文件
       // 使用到 admin.vue 布局的，都需要放置在其子路由下面
+      // 使用到 admin.vue 布局的，都需要放置在其子路由下面
       children: [
         {
           path: '/admin/index',
-          component: AdminIndex, // 主内容区域，具体需要渲染的页面
+          component: AdminIndex,
           meta: {
-            title: 'Admin 后台首页',
+            title: '仪表盘',
+          },
+        },
+        {
+          path: '/admin/article/list',
+          component: AdminArticleList,
+          meta: {
+            title: '文章管理',
+          },
+        },
+        {
+          path: '/admin/category/list',
+          component: AdminCategoryList,
+          meta: {
+            title: '分类管理',
+          },
+        },
+        {
+          path: '/admin/tag/list',
+          component: AdminTagList,
+          meta: {
+            title: '标签管理',
+          },
+        },
+        {
+          path: '/admin/blog/setting',
+          component: AdminBlogSetting,
+          meta: {
+            title: '博客设置',
           },
         },
       ],
