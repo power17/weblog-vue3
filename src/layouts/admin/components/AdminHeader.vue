@@ -47,7 +47,7 @@
             :size="25"
             src="https://img.quanxiaoha.com/quanxiaoha/f97361c0429d4bb1bc276ab835843065.jpg"
           />
-          Admin
+          {{ userStore.userInfo.username }}
           <el-icon class="el-icon--right">
             <arrow-down />
           </el-icon>
@@ -65,7 +65,10 @@
 <script setup lang="ts">
 import { useMenuStore } from '@/stores/menu'
 import { useFullscreen } from '@vueuse/core'
+import { useUserStore } from '@/stores/user'
 
+// 引入了用户 Store
+const userStore = useUserStore()
 // isFullscreen 表示当前是否处于全屏；toggle 用于动态切换全屏、非全屏
 const { isFullscreen, toggle } = useFullscreen()
 // 引入了菜单 store

@@ -11,3 +11,11 @@ export function login(username: string, password: string) {
     },
   })
 }
+
+// 获取登录用户信息
+export function getUserInfo() {
+  return request<{ username: string }>({
+    url: '/admin/user/info',
+    method: 'post',
+  })
+}

@@ -38,7 +38,7 @@ instance.interceptors.response.use(
     const res = response.data
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
-    if (res.errorCode && res.message) {
+    if (!res.success || (res.errorCode && res.message)) {
       // 弹错误提示
       showMessage(res.message || '后台接口错误', 'error')
       return Promise.reject(res)

@@ -74,6 +74,9 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import type { FormInstance } from 'element-plus'
 import { setToken, showMessage } from '@/utils'
+import { useUserStore } from '@/stores/user'
+const userStore = useUserStore()
+
 const router = useRouter()
 const loading = ref(false)
 const form = reactive({
@@ -119,7 +122,8 @@ const onSubmit = () => {
           // 提示登录成功
           showMessage('登录成功')
           // 存储 Token 到 Cookie 中
-
+          // 获取用户信息，并存储到全局状态中
+          userStore.setUserInfo()
           // 跳转到后台首页
           router.push('/admin/index')
         }
