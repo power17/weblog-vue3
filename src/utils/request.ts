@@ -1,5 +1,5 @@
 import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios'
-import { getToken } from './auth'
+import { getToken } from './cookie'
 import { showMessage } from './elementUtil'
 interface Response<T = any> {
   data: T

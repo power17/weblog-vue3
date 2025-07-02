@@ -23,7 +23,7 @@
     </el-tabs>
     <!-- 右侧下拉菜单 -->
     <span class="ml-auto flex items-center justify-center h-[32px] w-[32px]">
-      <el-dropdown>
+      <el-dropdown @command="handleCloseTab">
         <span class="el-dropdown-link">
           <el-icon class="el-icon--right">
             <arrow-down />
@@ -40,8 +40,13 @@
   </div>
   <div class="h-[44px]"></div>
 </template>
-
 <script lang="ts" setup>
+import { useTabList } from '../hooks/useTagList'
+
+const { menuStore, activeTab, tabList, tabChange, removeTab, handleCloseTab } = useTabList()
+</script>
+
+<!-- <script lang="ts" setup>
 import { ref } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
@@ -130,7 +135,30 @@ onBeforeRouteUpdate((to) => {
     path: to.path,
   })
 })
-</script>
+// 处理关闭标签菜单事件
+const handleCloseTab = (command: string) => {
+  // 首页路由
+  const indexPath = '/admin/index'
+  // 处理关闭其他
+  if (command === 'closeOthers') {
+    // 仅过滤出首页和当前页
+    tabList.value = tabList.value.filter(
+      (tab) => tab.path == indexPath || tab.path == activeTab.value,
+    )
+  } else if (command === 'closeAll') {
+    // 处理关闭全部
+    // 切换回首页
+    activeTab.value = indexPath
+    // 只保留首页
+    tabList.value = tabList.value.filter((tab) => tab.path == indexPath)
+    // 切换标签页
+    tabChange(activeTab.value)
+  }
+
+  // 设置到 cookie 中
+  setTabList(tabList.value)
+}
+</script> -->
 
 <style>
 .el-tabs__item {
