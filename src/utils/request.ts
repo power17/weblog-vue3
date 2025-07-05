@@ -6,6 +6,9 @@ interface Response<T = any> {
   errorCode: string
   message: string
   success: boolean
+  total?: number
+  current?: number
+  size?: number
 }
 // 创建 Axios 实例
 const instance = axios.create({
