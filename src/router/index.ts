@@ -6,7 +6,7 @@ import Admin from '@/layouts/admin/index.vue'
 import AdminArticleList from '@/pages/admin/article-list/index.vue'
 import AdminCategoryList from '@/pages/admin/category-list/index.vue'
 import AdminTagList from '@/pages/admin/tag-list/index.vue'
-import AdminBlogSetting from '@/pages/admin/blog-setting/index.vue'
+import AdminBlogSetting from '@/pages/admin/blogs-setting/index.vue'
 
 import { getToken, showMessage } from '@/utils'
 import nprogress from 'nprogress'
@@ -97,7 +97,7 @@ router.beforeEach((to, from, next) => {
 })
 
 // 全局路由后置守卫
-router.afterEach((to, from) => {
+router.afterEach(() => {
   nprogress.done()
 })
 
