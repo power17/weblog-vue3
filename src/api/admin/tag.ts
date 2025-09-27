@@ -33,3 +33,18 @@ export function deleteTag(id: number) {
     },
   })
 }
+
+export function searchTags(key: string) {
+  return request({
+    url: '/admin/tag/search',
+    method: 'post',
+    data: { key },
+  })
+}
+
+export function getTagSelectList() {
+  return request({
+    url: '/admin/tag/select/list',
+    method: 'post',
+  })
+}

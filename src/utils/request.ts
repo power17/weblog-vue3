@@ -1,6 +1,7 @@
 import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import { getToken } from './cookie'
 import { showMessage } from './elementUtil'
+import { removeToken } from '@/utils/cookie'
 interface Response<T = any> {
   data: T
   errorCode: string
@@ -52,6 +53,14 @@ instance.interceptors.response.use(
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
     // 若后台有错误提示就用提示文字，默认提示为 '请求失败'
+    // 状态码 401
+    const status = error.response.status
+    if (status == 401) {
+      // 删除 cookie 中的令牌
+      removeToken()
+      // 刷新页面
+      location.reload()
+    }
     const errorMsg: string = error.message || 'http请求失败'
     // 弹错误提示
     showMessage(errorMsg, 'error')

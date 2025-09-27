@@ -43,3 +43,10 @@ export function deleteCategory(id: number) {
     },
   })
 }
+
+export function getCategorySelectList() {
+  return request({
+    url: '/admin/category/select/list',
+    method: 'post',
+  })
+}
