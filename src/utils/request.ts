@@ -1,7 +1,7 @@
 import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import { getToken } from './cookie'
 import { showMessage } from './elementUtil'
-import { removeToken } from '@/utils/cookie'
+import { useUserStore } from '@/stores/user'
 interface Response<T = any> {
   data: T
   errorCode: string
@@ -56,8 +56,9 @@ instance.interceptors.response.use(
     // 状态码 401
     const status = error.response.status
     if (status == 401) {
-      // 删除 cookie 中的令牌
-      removeToken()
+      // 退出登录
+      const userStore = useUserStore()
+      userStore.logout()
       // 刷新页面
       location.reload()
     }

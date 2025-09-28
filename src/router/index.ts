@@ -10,6 +10,7 @@ import AdminBlogSetting from '@/pages/admin/blogs-setting/index.vue'
 
 import { getToken, showMessage } from '@/utils'
 import nprogress from 'nprogress'
+import { useBlogSettingsStore } from '@/stores/blogsettings'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -86,6 +87,13 @@ router.beforeEach((to, from, next) => {
   if (!token && to.path.startsWith('/admin')) {
     showMessage('请先登录', 'warning')
     next({ path: '/login' })
+  } else if (!to.path.startsWith('/admin')) {
+    // 如果访问的非 /admin 前缀路由
+    // 引入博客设置 store
+    const blogSettingsStore = useBlogSettingsStore()
+    // 获取博客设置信息并保存到全局状态中
+    blogSettingsStore.getBlogSettings()
+    next()
   } else if (token && to.path == '/login') {
     // 若用户已经登录，且重复访问登录页
     showMessage('请勿重复登录', 'warning')
