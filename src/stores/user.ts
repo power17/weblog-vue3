@@ -3,13 +3,13 @@ import { ref } from 'vue'
 import { getUserInfo } from '@/api/admin/user'
 import { removeToken } from '@/utils/cookie'
 export interface UserInfoType {
-  username: string
+  username?: string
 }
 export const useUserStore = defineStore(
   'user',
   () => {
     // 用户信息
-    const userInfo = ref<UserInfoType>({ username: '' })
+    const userInfo = ref<UserInfoType>({})
 
     // 设置用户信息
     function setUserInfo() {
@@ -23,7 +23,7 @@ export const useUserStore = defineStore(
       // 删除 cookie 中的 token 令牌
       removeToken()
       // 删除登录用户信息
-      userInfo.value = { username: '' }
+      userInfo.value = {}
     }
 
     return { userInfo, setUserInfo, logout }

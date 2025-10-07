@@ -1,10 +1,23 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { getBlogSettingsDetail } from '@/api/frontend/blogsettings'
+interface BlogSettingsType {
+  logo: string
+  name: string
+  author: string
+  introduction: string
+  avatar: string
+}
 
 export const useBlogSettingsStore = defineStore('blogsettings', () => {
   // 博客设置信息
-  const blogSettings = ref({})
+  const blogSettings = ref<BlogSettingsType>({
+    logo: '',
+    name: '',
+    author: '',
+    introduction: '',
+    avatar: '',
+  })
 
   // 获取博客设置信息
   function getBlogSettings() {

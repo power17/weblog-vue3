@@ -11,7 +11,7 @@ import AdminBlogSetting from '@/pages/admin/blogs-setting/index.vue'
 import { getToken, showMessage } from '@/utils'
 import nprogress from 'nprogress'
 import { useBlogSettingsStore } from '@/stores/blogsettings'
-
+import ArchiveList from '@/pages/frontend/archive-list.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,6 +21,14 @@ const router = createRouter({
       meta: {
         // meta 信息
         title: 'Weblog 首页', // 页面标题
+      },
+    },
+    {
+      path: '/archive/list', // 归档页
+      component: ArchiveList,
+      meta: {
+        // meta 信息
+        title: 'Weblog 归档页',
       },
     },
     {
