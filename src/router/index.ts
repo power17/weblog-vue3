@@ -12,6 +12,8 @@ import { getToken, showMessage } from '@/utils'
 import nprogress from 'nprogress'
 import { useBlogSettingsStore } from '@/stores/blogsettings'
 import ArchiveList from '@/pages/frontend/archive-list.vue'
+import CategoryList from '@/pages/frontend/category-list.vue'
+import CategoryArticleList from '@/pages/frontend/category-article-list.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,6 +23,22 @@ const router = createRouter({
       meta: {
         // meta 信息
         title: 'Weblog 首页', // 页面标题
+      },
+    },
+    {
+      path: '/category/list', // 分类页
+      component: CategoryList,
+      meta: {
+        // meta 信息
+        title: 'Weblog 分类页',
+      },
+    },
+    {
+      path: '/category/article/list', // 分类文章页
+      component: CategoryArticleList,
+      meta: {
+        // meta 信息
+        title: 'Weblog 分类文章页',
       },
     },
     {

@@ -74,7 +74,12 @@
                       d="M1 5v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H1Zm0 0V2a1 1 0 0 1 1-1h5.443a1 1 0 0 1 .8.4l2.7 3.6H1Z"
                     />
                   </svg>
-                  <a href="#" class="text-gray-400 hover:underline">{{ article.category.name }}</a>
+                  <a
+                    @click="goCategoryArticleListPage(article.category.id, article.category.name)"
+                    href="#"
+                    class="text-gray-400 hover:underline"
+                    >{{ article.category.name }}</a
+                  >
                 </p>
               </div>
             </div>
@@ -176,6 +181,8 @@ import { getArticlePageList } from '@/api/frontend/article'
 import UserInfoCard from '@/layouts/frontend/components/UserInfoCard.vue'
 import TagListCard from '@/layouts/frontend/components/TagListCard.vue'
 import CategoryListCard from '@/layouts/frontend/components/CategoryListCard.vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 interface TagsType {
   name: string
 }
@@ -185,7 +192,7 @@ interface ArticlesType {
   summary: string
   tags: TagsType[]
   createDate: string
-  category: { name: string }
+  category: { name: string; id: string }
 }
 // 文章集合
 const articles = ref<ArticlesType[]>([])
@@ -214,4 +221,10 @@ getArticles(current.value)
 onMounted(() => {
   initTooltips()
 })
+
+// 跳转分类文章列表页
+const goCategoryArticleListPage = (id: string, name: string) => {
+  // 跳转时通过 query 携带参数（分类 ID、分类名称）
+  router.push({ path: '/category/article/list', query: { id, name } })
+}
 </script>
