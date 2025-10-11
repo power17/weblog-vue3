@@ -157,6 +157,7 @@
 
       <!-- 分页列表 -->
       <el-table :data="tableData" border stripe style="width: 100%" v-loading="tableLoading">
+        <el-table-column prop="id" label="ID" width="50" />
         <el-table-column prop="title" label="标题" width="380" />
         <el-table-column prop="cover" label="封面" width="180">
           <template #default="scope">
@@ -171,6 +172,12 @@
                 <Edit />
               </el-icon>
               编辑</el-button
+            >
+            <el-button size="small" @click="goArticleDetailPage(scope.row.id)">
+              <el-icon class="mr-1">
+                <View />
+              </el-icon>
+              预览</el-button
             >
             <el-button @click="deleteArticleSubmit(scope.row)" type="danger" size="small">
               <el-icon class="mr-1">
@@ -337,6 +344,7 @@ import {
   updateArticle,
 } from '@/api/admin/article'
 import type { UploadFile as ElUploadFile } from 'element-plus'
+import { useRouter } from 'vue-router'
 interface FileType {
   raw: string | Blob
 }
@@ -344,6 +352,8 @@ interface TagsType {
   value: string
   label: string
 }
+const router = useRouter()
+
 // 模糊搜索的文章标题
 const searchArticleTitle = ref('')
 // 日期
@@ -388,6 +398,9 @@ const updateArticleForm = reactive({
   tags: [],
   summary: '',
 })
+const goArticleDetailPage = (articleId: string) => {
+  router.push('/article/' + articleId)
+}
 
 // 编辑文章：上传文章封面图片
 const handleUpdateCoverChange = (file: FileType) => {
