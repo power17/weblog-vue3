@@ -8,3 +8,11 @@ export function getArticlePageList(data: any) {
     data,
   })
 }
+
+export function getArticleDetail(articleId: string) {
+  return request({
+    url: '/article/detail',
+    method: 'post',
+    data: { articleId },
+  })
+}

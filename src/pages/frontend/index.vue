@@ -14,7 +14,7 @@
               class="bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
             >
               <!-- 文章封面 -->
-              <a href="#">
+              <a href="#" @click="goArticleDetailPage(article.id)">
                 <img class="rounded-t-lg h-48 w-full" :src="article.cover" />
               </a>
               <div class="p-5">
@@ -187,6 +187,7 @@ interface TagsType {
   name: string
 }
 interface ArticlesType {
+  id: string
   cover: string
   title: string
   summary: string
@@ -226,5 +227,9 @@ onMounted(() => {
 const goCategoryArticleListPage = (id: string, name: string) => {
   // 跳转时通过 query 携带参数（分类 ID、分类名称）
   router.push({ path: '/category/article/list', query: { id, name } })
+}
+// 跳转文章详情页
+const goArticleDetailPage = (articleId: string) => {
+  router.push('/article/' + articleId)
 }
 </script>
