@@ -186,7 +186,7 @@ const handleCommand = (command: string) => {
   // 更新密码
   if (command == 'updatePassword') {
     dialogVisible.value = true
-    form.username = userStore.userInfo.username
+    form.username = userStore.userInfo.username || ''
     // 省略...
   }
   if (command == 'logout') {

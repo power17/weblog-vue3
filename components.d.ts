@@ -8,6 +8,9 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArticlePublishCalendar: typeof import('./src/components/ArticlePublishCalendar.vue')['default']
+    ArticlePVLineChat: typeof import('./src/components/ArticlePVLineChat.vue')['default']
+    CountTo: typeof import('./src/components/CountTo.vue')['default']
     ElAffix: typeof import('element-plus/es')['ElAffix']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
