@@ -17,7 +17,8 @@ import CategoryArticleList from '@/pages/frontend/category-article-list.vue'
 import TagList from '@/pages/frontend/tag-list.vue'
 import TagArticleList from '@/pages/frontend/tag-article-list.vue'
 import ArticleDetail from '@/pages/frontend/article-detail.vue'
-import NotFound from '@/pages/frontend/404.vue'
+import NotFound from '@/pages/frontend/not-found.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -146,22 +147,19 @@ router.beforeEach((to, from, next) => {
   document.title = title
   // 未登录，则强制跳转登录页
   const token = getToken()
-  if (!token && to.path.startsWith('/admin')) {
+  if (!token) {
     showMessage('请先登录', 'warning')
     next({ path: '/login' })
-  } else if (!to.path.startsWith('/admin')) {
-    // 如果访问的非 /admin 前缀路由
-    // 引入博客设置 store
-    const blogSettingsStore = useBlogSettingsStore()
-    // 获取博客设置信息并保存到全局状态中
-    blogSettingsStore.getBlogSettings()
-    next()
   } else if (token && to.path == '/login') {
     // 若用户已经登录，且重复访问登录页
     showMessage('请勿重复登录', 'warning')
     // 跳转后台首页
     next({ path: '/admin/index' })
   } else {
+    // 引入博客设置 store
+    const blogSettingsStore = useBlogSettingsStore()
+    // // 获取博客设置信息并保存到全局状态中
+    blogSettingsStore.getBlogSettings()
     next()
   }
 })

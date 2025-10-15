@@ -4,6 +4,7 @@ import { getUserInfo } from '@/api/admin/user'
 import { removeToken } from '@/utils/cookie'
 export interface UserInfoType {
   username?: string
+  avatar?: string
 }
 export const useUserStore = defineStore(
   'user',

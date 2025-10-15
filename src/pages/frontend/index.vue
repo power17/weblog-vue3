@@ -11,7 +11,7 @@
         <div class="grid grid-cols-2 gap-4">
           <div v-for="(article, index) in articles" :key="index" class="col-span-2 md:col-span-1">
             <div
-              class="bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
+              class="h-full bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
             >
               <!-- 文章封面 -->
               <a href="#" @click="goArticleDetailPage(article.id)">

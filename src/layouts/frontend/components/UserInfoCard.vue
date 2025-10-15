@@ -6,7 +6,7 @@
       <!-- 博主头像 -->
       <img
         class="w-24 h-24 mb-3 rounded-full shadow"
-        src="https://img.quanxiaoha.com/quanxiaoha/f97361c0429d4bb1bc276ab835843065.jpg"
+        :src="blogSettingsStore.blogSettings.avatar"
         alt="Bonnie image"
       />
       <!-- 博主昵称 -->
@@ -152,6 +152,10 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useBlogSettingsStore } from '@/stores/blogsettings'
+
+const blogSettingsStore = useBlogSettingsStore()
+</script>
 
 <style scoped></style>

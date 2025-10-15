@@ -69,7 +69,7 @@
           <div
             class="text-gray-900 ml-1 mr-1 hover:text-blue-700"
             v-if="!isLogined"
-            @click="$router.push('/login')"
+            @click="router.push('/login')"
           >
             登录
           </div>

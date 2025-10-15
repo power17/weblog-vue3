@@ -10,6 +10,7 @@ interface BlogSettingsType {
 }
 
 export const useBlogSettingsStore = defineStore('blogsettings', () => {
+  console.log('useBlogSettingsStore')
   // 博客设置信息
   const blogSettings = ref<BlogSettingsType>({
     logo: '',

@@ -55,11 +55,7 @@
         <el-dropdown @command="handleCommand" class="flex items-center justify-center">
           <span class="el-dropdown-link flex items-center justify-center text-gray-700 text-xs">
             <!-- 头像 Avatar -->
-            <el-avatar
-              class="mr-2"
-              :size="25"
-              src="https://img.quanxiaoha.com/quanxiaoha/f97361c0429d4bb1bc276ab835843065.jpg"
-            />
+            <el-avatar class="mr-2" :size="25" :src="blogSettingsStore.blogSettings.avatar" />
             {{ userStore.userInfo.username }}
             <el-icon class="el-icon--right">
               <arrow-down />
@@ -133,7 +129,9 @@ import { useRouter } from 'vue-router'
 import { reactive, ref } from 'vue'
 import { updateAdminPassword } from '@/api/admin/user'
 import type { FormInstance } from 'element-plus'
+import { useBlogSettingsStore } from '@/stores/blogsettings'
 const router = useRouter()
+const blogSettingsStore = useBlogSettingsStore()
 // 引入了用户 Store
 const userStore = useUserStore()
 // isFullscreen 表示当前是否处于全屏；toggle 用于动态切换全屏、非全屏

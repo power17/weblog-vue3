@@ -86,20 +86,18 @@
               />
             </el-form-item>
             <el-form-item label="封面" prop="cover">
-              <el-form-item label="封面" prop="cover">
-                <el-upload
-                  class="avatar-uploader"
-                  action="#"
-                  :on-change="handleCoverChange"
-                  :auto-upload="false"
-                  :show-file-list="false"
-                >
-                  <img v-if="form.cover" :src="form.cover" class="avatar" />
-                  <el-icon v-else class="avatar-uploader-icon">
-                    <Plus />
-                  </el-icon>
-                </el-upload>
-              </el-form-item>
+              <el-upload
+                class="avatar-uploader"
+                action="#"
+                :on-change="handleCoverChange"
+                :auto-upload="false"
+                :show-file-list="false"
+              >
+                <img v-if="form.cover" :src="form.cover" class="avatar" />
+                <el-icon v-else class="avatar-uploader-icon">
+                  <Plus />
+                </el-icon>
+              </el-upload>
             </el-form-item>
             <el-form-item label="摘要" prop="summary">
               <!-- :rows="3" 指定 textarea 默认显示 3 行 -->

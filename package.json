@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
+    "build": "run-p  \"build-only {@}\" --",
+    "ts-build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview --port 4444",
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
