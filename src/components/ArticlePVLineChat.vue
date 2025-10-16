@@ -3,7 +3,7 @@
   <div id="lineChat" class="overflow-x-auto w-full h-60"></div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import * as echarts from 'echarts'
 import { watch } from 'vue'
 

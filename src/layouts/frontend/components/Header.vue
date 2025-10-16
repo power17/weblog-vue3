@@ -211,7 +211,7 @@
               <a
                 @click="router.push('/')"
                 :class="[currPath == '/' ? 'text-blue-700' : 'text-gray-900']"
-                class="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 md:dark:text-blue-500"
+                class="cursor-pointer block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 md:dark:text-blue-500"
                 aria-current="page"
                 >首页</a
               >

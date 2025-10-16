@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 // 是否展示返回顶部按钮

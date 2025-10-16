@@ -10,7 +10,7 @@
         alt="Bonnie image"
       />
       <!-- 博主昵称 -->
-      <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">犬小哈</h5>
+      <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">power</h5>
       <!-- 介绍语 -->
       <span class="text-sm text-gray-500 dark:text-gray-400">Java工程师一枚</span>
       <!-- 第三方平台主页跳转（如 GitHub 等） -->

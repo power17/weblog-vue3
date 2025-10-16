@@ -18,6 +18,7 @@
           <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li v-for="(article, index2) in archive.articles" :key="index2">
               <a
+                @click="goArticleDetailPage(article.id)"
                 href="#"
                 class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
@@ -147,6 +148,8 @@ import TagListCard from '@/layouts/frontend/components/TagListCard.vue'
 import CategoryListCard from '@/layouts/frontend/components/CategoryListCard.vue'
 import { ref } from 'vue'
 import { getArchivePageList } from '@/api/frontend/archive'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 interface ArchiveType {
   id: number
   title: string
@@ -164,6 +167,10 @@ const size = ref(3)
 const total = ref(0)
 // 总共多少页
 const pages = ref(0)
+
+const goArticleDetailPage = (articleId: string) => {
+  router.push('/article/' + articleId)
+}
 
 function getArchives(currentNo: number) {
   // 上下页是否能点击判断，当要跳转上一页且页码小于 1 时，则不允许跳转；当要跳转下一页且页码大于总页数时，则不允许跳转
